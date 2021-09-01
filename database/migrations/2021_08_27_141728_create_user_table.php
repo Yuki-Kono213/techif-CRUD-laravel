@@ -18,7 +18,6 @@ class CreateUserTable extends Migration
             $table->string('name',15);
             $table->string('phone',15);
             $table->string('email',254);
-            $table->timestamps();
         });
     }
 
