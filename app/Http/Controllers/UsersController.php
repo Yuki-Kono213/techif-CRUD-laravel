@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Users;
+use App\Models\CrudUsers;
 
 class UsersController extends Controller
 {    
@@ -26,7 +26,8 @@ class UsersController extends Controller
 
     public function index()
     {
-        $users = Users::orderBy('id', 'asc')->get();
+        $users = CrudUsers::orderBy('id', 'asc')->get();
+        
         return view('users.index', [
             'users' => $users,
         ]);
@@ -45,7 +46,7 @@ class UsersController extends Controller
         ]);
  
        // ユーザー作成
-        Users::create([
+        CrudUsers::create([
            'id' => $request->id,
            'name' => $request->name,
            'phone' => $request->phone,
@@ -61,7 +62,7 @@ class UsersController extends Controller
             'name' => 'required|max:255',
         ]);
        // ユーザー更新
-        Users::where('id', $request->id)
+        CrudUsers::where('id', $request->id)
         ->update([
             'name' => $request->name,
             'phone' => $request->phone,
@@ -78,7 +79,7 @@ class UsersController extends Controller
      * @param Task $task
      * @return Response
      */
-    public function destroy(Request $request, Users $user)
+    public function destroy(Request $request, CrudUsers $user)
     {
 
         $user->delete();
@@ -92,7 +93,7 @@ class UsersController extends Controller
 
     public function moveedit(int $id)
     {
-        $user = Users::find($id);
+        $user = CrudUsers::find($id);
         return view('CRUD.edit', [
             'user' => $user,
         ]);
