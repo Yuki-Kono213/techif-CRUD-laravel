@@ -38,7 +38,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-6">
-                                <button id="register" name="btnRegister"> 登録
+                                <button  type="submit" id="register" name="btnRegister"> 登録
                             </div>
                         </div>
 
