@@ -45,6 +45,7 @@ class UsersController extends Controller
             'name' => 'required|max:255',
         ]);
  
+        dd($request);
        // ユーザー作成
         CrudUsers::create([
            'id' => $request->id,
